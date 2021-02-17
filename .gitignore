@@ -73,9 +73,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Unity Asset Packs
-epyphany/
-Samples/
-SkyBox Volume 2/
-StarSparrow/
-Sci-Fi Music Pack 1/
-Standard Assets/
+AssetPacks/
