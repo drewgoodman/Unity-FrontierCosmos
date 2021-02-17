@@ -693,6 +693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlSpeed: 10
+  xRange: 6
+  yRange: 6
 --- !u!4 &4889076900010040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2232944842947893493, guid: 24dd0c310e740674387f82afb3590576,
@@ -719,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 2232944842947893493, guid: 24dd0c310e740674387f82afb3590576,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.87
       objectReference: {fileID: 0}
     - target: {fileID: 2232944842947893493, guid: 24dd0c310e740674387f82afb3590576,
         type: 3}
