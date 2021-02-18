@@ -695,6 +695,9 @@ MonoBehaviour:
   controlSpeed: 15
   xRange: 10
   yRange: 8
+  positionPitchFactor: -2
+  controlPitchFactor: -10
+  positionYawFactor: 2
 --- !u!4 &4889076900010040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2232944842947893493, guid: 24dd0c310e740674387f82afb3590576,
