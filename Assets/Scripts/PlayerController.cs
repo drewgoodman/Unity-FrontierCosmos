@@ -8,11 +8,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float xRange = 6f;
     [SerializeField] float yRange = 6f;
 
+    [SerializeField] float positionPitchFactor = -2f;
+    [SerializeField] float controlPitchFactor = -10f;
+
+
+    float xThrow, yThrow;
+
     // Update is called once per frame
     void Update()
     {
-        float xThrow = Input.GetAxis("Horizontal");
-        float yThrow = Input.GetAxis("Vertical");
+
+        ProcessTranslation();
+        ProcessRotation();
+    }
+
+    void ProcessTranslation()
+    {
+
+        xThrow = Input.GetAxis("Horizontal");
+        yThrow = Input.GetAxis("Vertical");
 
         float xOffset = xThrow * Time.deltaTime * controlSpeed;
         float rawXPos = transform.localPosition.x + xOffset;
@@ -26,5 +40,13 @@ public class PlayerController : MonoBehaviour
         (clampedXPos,
         clampedYPos,
         transform.localPosition.z);
+    }
+
+    void ProcessRotation()
+    {
+        float pitch = transform.localPosition.y * positionPitchFactor + yThrow * controlPitchFactor;
+        float yaw = 0f;
+        float roll = 0f;
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 }
