@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
         ProcessTranslation();
         ProcessRotation();
+        ProcessFiring();
     }
 
     void ProcessTranslation()
@@ -54,5 +55,13 @@ public class PlayerController : MonoBehaviour
         float roll = xThrow * controlRollFactor;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    void ProcessFiring()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            print("Firing mah lazer!");
+        }
     }
 }
