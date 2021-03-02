@@ -6,14 +6,11 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField]
+    ParticleSystem explosionVFX;
+
+    [SerializeField]
     [Tooltip("How long before reloading level on collision death?")]
     float levelLoadDelay = 1f;
-
-    // void OnCollisionEnter(Collision collision)
-    // {
-    //     Debug.Log(this.name + "-- crashed into --" + collision.gameObject.name);
-    //     HandleDeathSequence();
-    // }
 
     void OnTriggerEnter(Collider trigger)
     {
@@ -23,12 +20,15 @@ public class CollisionHandler : MonoBehaviour
 
     void HandleDeathSequence()
     {
+        explosionVFX.Play();
+        GetComponent<PlayerController>().enabled = false;
         Invoke("ReloadLevel", levelLoadDelay);
     }
 
     void ReloadLevel()
     {
-        SceneManager.LoadScene(0);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
 }
