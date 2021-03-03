@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    [SerializeField]
-    ParticleSystem explosionVFX;
+    [SerializeField] ParticleSystem explosionVFX;
 
     [SerializeField]
     [Tooltip("How long before reloading level on collision death?")]
@@ -21,7 +20,9 @@ public class CollisionHandler : MonoBehaviour
     void HandleDeathSequence()
     {
         explosionVFX.Play();
+        GetComponent<MeshRenderer>().enabled = false;
         GetComponent<PlayerController>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
         Invoke("ReloadLevel", levelLoadDelay);
     }
 
