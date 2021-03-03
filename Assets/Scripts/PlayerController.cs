@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SetLasersActive(bool isActive)
+    public void SetLasersActive(bool isActive)
     {
         foreach(GameObject laser in lasers)
         {

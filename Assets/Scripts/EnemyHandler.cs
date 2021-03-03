@@ -8,8 +8,8 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] GameObject damageVFX;
     [SerializeField] Transform parent;
     [SerializeField] [Tooltip("Object's starting HP.")] int hitPoints = 3;
-    [SerializeField] [Tooltip("Increase to score upon hit.")] int hitScore = 1;
-    [SerializeField] [Tooltip("Bonus increase to score upon object's destruction.")] int deathScore = 5;
+    [SerializeField] [Tooltip("Increase to score upon non-lethal hit.")] int hitScore = 1;
+    [SerializeField] [Tooltip("Increase to score upon object's destruction.")] int deathScore = 5;
     ScoreBoard scoreBoard;
 
     void Start()
@@ -25,7 +25,6 @@ public class EnemyHandler : MonoBehaviour
 
     void ProcessHit()
     {
-        scoreBoard.ModifyScore(hitScore);
         hitPoints -= 1;
         if(hitPoints == 0)
         {
@@ -47,6 +46,7 @@ public class EnemyHandler : MonoBehaviour
 
     void DamageEnemy()
     {
+        scoreBoard.ModifyScore(hitScore);
         GameObject vfx = Instantiate(damageVFX, transform.position, Quaternion.identity);
         vfx.transform.parent = parent;
     }
