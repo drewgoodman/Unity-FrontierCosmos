@@ -419,8 +419,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 1048034410617915494, guid: 52d7ab68916adda44a9bb87b2b0b2e3d,
     type: 3}
+  damageVFX: {fileID: 1048034410617915494, guid: 1c4415456dd3a7d4595b351bc70ae4af,
+    type: 3}
   parent: {fileID: 1013296498}
-  deathScore: 1
+  hitPoints: 3
+  hitScore: 1
+  deathScore: 4
 --- !u!4 &1013296498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5500293625482547563, guid: d0635e6d7ed2d834ab6ef838a4bd7ea3,
@@ -700,8 +704,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 1048034410617915494, guid: 52d7ab68916adda44a9bb87b2b0b2e3d,
     type: 3}
+  damageVFX: {fileID: 1048034410617915494, guid: 1c4415456dd3a7d4595b351bc70ae4af,
+    type: 3}
   parent: {fileID: 1013296498}
-  deathScore: 1
+  hitPoints: 1
+  hitScore: 1
+  deathScore: 10
 --- !u!1 &1948347994
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +885,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 0}
+  damageVFX: {fileID: 0}
   parent: {fileID: 0}
+  hitPoints: 3
+  hitScore: 1
   deathScore: 1
 --- !u!1001 &1750395245360890631
 PrefabInstance:
