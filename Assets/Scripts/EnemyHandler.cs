@@ -15,6 +15,13 @@ public class EnemyHandler : MonoBehaviour
     void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>();
+        AddRigidBody();
+    }
+
+    void AddRigidBody()
+    {
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
     }
 
     void OnParticleCollision(GameObject particle)
@@ -25,8 +32,8 @@ public class EnemyHandler : MonoBehaviour
 
     void ProcessHit()
     {
-        hitPoints -= 1;
-        if(hitPoints == 0)
+        hitPoints--;
+        if(hitPoints < 1)
         {
             KillEnemy();
         }

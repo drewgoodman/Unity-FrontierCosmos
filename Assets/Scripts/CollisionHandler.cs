@@ -19,11 +19,8 @@ public class CollisionHandler : MonoBehaviour
 
     void HandleDeathSequence()
     {
-        explosionVFX.Play();
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<PlayerController>().SetLasersActive(false);
-        GetComponent<PlayerController>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
+        DisableGameInput();
+        DestroyPlayerShip();
         Invoke("ReloadLevel", levelLoadDelay);
     }
 
@@ -31,6 +28,18 @@ public class CollisionHandler : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    void DisableGameInput()
+    {
+        GetComponent<PlayerController>().SetLasersActive(false);
+        GetComponent<PlayerController>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+    }
+    void DestroyPlayerShip()
+    {
+        explosionVFX.Play();
+        GetComponent<MeshRenderer>().enabled = false;
     }
 
 }
