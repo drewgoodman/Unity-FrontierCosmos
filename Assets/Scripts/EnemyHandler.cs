@@ -6,15 +6,16 @@ public class EnemyHandler : MonoBehaviour
 {
     [SerializeField] GameObject deathVFX;
     [SerializeField] GameObject damageVFX;
-    [SerializeField] Transform parent;
     [SerializeField] [Tooltip("Object's starting HP.")] int hitPoints = 3;
     [SerializeField] [Tooltip("Increase to score upon non-lethal hit.")] int hitScore = 1;
     [SerializeField] [Tooltip("Increase to score upon object's destruction.")] int deathScore = 5;
     ScoreBoard scoreBoard;
+    GameObject parentGameObject;
 
     void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>();
+        parentGameObject = GameObject.FindWithTag("SpawnAtRuntime");
         AddRigidBody();
     }
 
@@ -47,7 +48,7 @@ public class EnemyHandler : MonoBehaviour
     {
         scoreBoard.ModifyScore(deathScore);
         GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parentGameObject.transform;
         Destroy(this.gameObject);
     }
 
@@ -55,6 +56,6 @@ public class EnemyHandler : MonoBehaviour
     {
         scoreBoard.ModifyScore(hitScore);
         GameObject vfx = Instantiate(damageVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parentGameObject.transform;
     }
 }
